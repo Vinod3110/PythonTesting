@@ -19,4 +19,4 @@ assert name in alertText
 alertBox.accept()
 # alertBox.dismiss()
 
-# driver.close()
+driver.close()
