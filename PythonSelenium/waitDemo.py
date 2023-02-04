@@ -35,6 +35,16 @@ wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".p
 actualText = driver.find_element(By.CLASS_NAME, "promoInfo").text
 print(actualText)
 assert actualText == "Code applied ..!"
+totalSum = 0
+##-- SUM Validation
+prices = driver.find_elements(By.CSS_SELECTOR,"tr td:nth-child(5) p")
+for price in prices:
+    val = int(price.text)
+    totalSum = val + totalSum
 
+print(totalSum)
+actualTotal = int(driver.find_element(By.CSS_SELECTOR, ".totAmt").text)
+
+assert totalSum == actualTotal
 
 driver.close()
